@@ -20,8 +20,10 @@ public final class Transformer {
 
     Transformer(String checkpoint_path) throws IOException {
         try (FileChannel fileChannel = FileChannel.open(Paths.get(checkpoint_path), StandardOpenOption.READ);
-             Arena arena = Arena.ofAuto()) { // Use Arena.ofAuto() for automatic memory management
+             ) { // Use Arena.ofAuto() for automatic memory management
             
+            
+            Arena arena = Arena.ofAuto();
             this.file_size = fileChannel.size();
             this.memoryArena = arena;
             MemorySegment mappedFile = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0, this.file_size, arena);
