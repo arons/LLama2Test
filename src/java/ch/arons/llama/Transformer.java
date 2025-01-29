@@ -19,8 +19,7 @@ public final class Transformer {
     final long file_size; // size of the checkpoint file in bytes
 
     Transformer(String checkpoint_path) throws IOException {
-        try (FileChannel fileChannel = FileChannel.open(Paths.get(checkpoint_path), StandardOpenOption.READ);
-             ) { // Use Arena.ofAuto() for automatic memory management
+        try (FileChannel fileChannel = FileChannel.open(Paths.get(checkpoint_path), StandardOpenOption.READ); ) { // Use Arena.ofAuto() for automatic memory management
             
             
             Arena arena = Arena.ofAuto();

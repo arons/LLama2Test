@@ -1,2 +1,4 @@
 #!/bin/bash
-wget https://github.com/karpathy/llama2.c/raw/master/tokenizer.bin
+if [ ! -f tokenizer.bin ]; then
+  wget https://github.com/karpathy/llama2.c/raw/master/tokenizer.bin
+fi
